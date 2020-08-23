@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ripple xmlns:android="http://schemas.android.com/apk/res/android" android:color="?android:attr/colorControlHighlight">
+
+    <item>
+        <shape>
+            <solid android:color="@color/colorPrimaryDark"/>
+            <corners android:radius="20dp"/>
+        </shape>
+    </item>
+
+    <item>
+        <shape>
+            <gradient
+                android:startColor="#E53E1B"
+                android:endColor="@color/colorEnd"
+                android:angle="-90"/>
+            <corners android:radius="20dp"/>
+        </shape>
+    </item>
+
+</ripple>

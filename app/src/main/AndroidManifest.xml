@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.extcode.project.mytomato">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.ACCESS_NOTIFICATION_POLICY" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_my_tomato"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_my_tomato"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true">
+
+        <receiver
+            android:name=".service.AlarmReceiver"
+            android:enabled="true"
+            android:exported="true" />
+
+        <activity
+            android:name=".ui.InputPomodoroActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ui.ListPomodoroActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ui.PomodoroActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ui.InputTaskActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ui.TaskActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ui.SchedulesActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ui.SettingActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ui.NewsActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ui.InputSchedulesActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ui.GetSchedulesActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ui.NameActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ui.MainActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ui.SplashScreenActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/SplashScreen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+    </application>
+
+</manifest>
