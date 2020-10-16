@@ -19,6 +19,4 @@ interface CompletedDao {
     @Query("DELETE FROM $TABLE_COMPLETED_NAME WHERE $COMPLETED_ID = :id ")
     fun deleteTask(id: Int): Int
 
-    @Update
-    fun updateTask(completedData: CompletedData): Int
 }

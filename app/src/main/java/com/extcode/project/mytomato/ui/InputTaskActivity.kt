@@ -148,21 +148,16 @@ class InputTaskActivity : AppCompatActivity(), View.OnClickListener,
 
         var id = taskSharedPref.getInt("id", 3)
 
+        taskData =
+            TaskData(
+                if (isEdit) getTaskData.id else id,
+                title,
+                description,
+                if (switchOn) date else "null",
+                if (switchOn) time else "null"
+            )
+
         if (switchOn) {
-            taskData =
-                if (isEdit) TaskData(
-                    getTaskData.id,
-                    title,
-                    description,
-                    date,
-                    time
-                ) else TaskData(
-                    id,
-                    title,
-                    description,
-                    date,
-                    time
-                )
 
             when {
 
@@ -188,28 +183,17 @@ class InputTaskActivity : AppCompatActivity(), View.OnClickListener,
                         } else {
 
                             taskSharedPref.edit { putInt("id", ++id) }
-                            if (isEdit) {
 
-                                alarmReceiver.cancelAlarm(this, taskData.id)
-                                alarmReceiver.setAlarm(
-                                    this,
-                                    "Your Task will end in 1 hour",
-                                    "${taskData.title} will end in ${taskData.time}, ${taskData.date}",
-                                    taskData.id,
-                                    taskData.date!!,
-                                    taskData.time!!
-                                )
+                            if (isEdit) alarmReceiver.cancelAlarm(this, taskData.id)
 
-                            } else {
-                                alarmReceiver.setAlarm(
-                                    this,
-                                    "Your Task will end in 1 hour",
-                                    "${taskData.title} will end in ${taskData.time}, ${taskData.date}",
-                                    taskData.id,
-                                    taskData.date!!,
-                                    taskData.time!!
-                                )
-                            }
+                            alarmReceiver.setAlarm(
+                                this,
+                                "Your Task will end in 1 hour",
+                                "${taskData.title} will end in ${taskData.time}, ${taskData.date}",
+                                taskData.id,
+                                taskData.date!!,
+                                taskData.time!!
+                            )
                             insertTask()
                         }
                         finish()
@@ -220,21 +204,6 @@ class InputTaskActivity : AppCompatActivity(), View.OnClickListener,
                 }
             }
         } else {
-
-            taskData =
-                if (isEdit) TaskData(
-                    getTaskData.id,
-                    title,
-                    description,
-                    "null",
-                    "null"
-                ) else TaskData(
-                    id,
-                    title,
-                    description,
-                    "null",
-                    "null"
-                )
 
             when {
 
